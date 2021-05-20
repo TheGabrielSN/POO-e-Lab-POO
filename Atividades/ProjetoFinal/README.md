@@ -11,4 +11,4 @@
             Gerente - Controla a criação e manipulação das contas.
             Correntista - Controla os dados da sua conta.
 
-    `Opção para linux:` https://replit.com/@Gabrielda14/Projeto-Final
+`Opção para linux:` https://replit.com/@Gabrielda14/Projeto-Final
