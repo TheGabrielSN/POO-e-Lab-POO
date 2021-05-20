@@ -2,18 +2,6 @@
 #include ".\Exception.h"
 
 void Banco::cadastrar(string num, Pessoa *p, float saldo, int tipoP, int tipoC, float limite, string data){
-    /*
-    
-    tipoP -> Tipo de pessoa:
-      1 -> PessoaFisica
-      2 -> PessoaJuridica
-
-    tipoC -> Tipo de Conta:
-      0 -> ContaCorrenteComun
-      1 -> ContaCorrenteLimite
-      2 -> ContaPoupanca
-    
-    */
     // Pessoa
     Pessoa *pes = nullptr;
     try{

@@ -1,5 +1,7 @@
 #include <iostream>                                     //Entrada e saída c++
 using std::cin, std::cout, std::endl;
+#include <iomanip>                                          //Manipulação de entrada e saída 
+using std::setprecision, std::setw, std::fixed;
 #include <string>                                       //Tipo string c++
 using std::string;                                  
 #include <vector>                                       //STL -> Lista duplamente encadeada
@@ -85,6 +87,7 @@ string replace(string word, string target, string replacement){
 }
 
 int main(){
+    system ("CLS");
     //Controle do códificação dos caracteres do pront de comando (CMD)
     SetConsoleOutputCP(CP_UTF8);
     setvbuf(stdout, nullptr, _IOFBF, 1000);
@@ -151,14 +154,15 @@ int main(){
                                 info.push_back(temp);
                                 cout << "Estado Civil: ";
                                 cin >> temp;
+                                info.push_back(temp);
                                 break;
                             } else if(tp==1){
                                 cout << "Informações Pessoais:" << endl;
                                 cout << "Nome: ";
-                                cin >> temp;
+                                while(std::getline(cin, temp)){ if(temp!=""){break;}}
                                 info.push_back(replace(temp, " ", "_"));
                                 cout << "Endereço: ";
-                                cin >> temp;
+                                while(std::getline(cin, temp)){ if(temp!=""){break;}}
                                 info.push_back(replace(temp, " ", "_"));
                                 cout << "Email: ";
                                 cin >> temp;
@@ -193,11 +197,11 @@ int main(){
                             else if(tc==2){
                                 cout << "Informe o valor do limite da conta: ";
                                 cin >> limite;
-                                gerente.abrir(info, tp, tc, limite);
+                                gerente.abrir(info, tp+1, tc-1, limite);
                                 break;
                             }
                             else if(tc==3){
-                                gerente.abrir(info, tp, tc, 0.0, dataAtual());
+                                gerente.abrir(info, tp+1, tc-1, 0.0, dataAtual());
                                 break;
                             }
                             else{
@@ -214,7 +218,7 @@ int main(){
                         cin >> num;
                         if(num=="0"){ break; }
                         gerente.consultar(num);
-                        Sleep(sleep1);
+                        Sleep(sleep3);
                     
                     } else if(op1== 3){
                         int opA;
@@ -281,6 +285,7 @@ int main(){
             cin >> num;
             Correntista correntista(num, banco);
             while(true){
+                system ("CLS");
                 int opC;
                 cout << "Digite a opção desejada: " << endl
                     << "1 - Depositar" << endl
@@ -308,7 +313,8 @@ int main(){
                         cin >> valor;
                         if(valor == 0){ break; }
                         try{
-                            cout << "Valor retirado: " << (correntista.retirar(valor)) << ", com sucesos!" << endl; 
+                            cout << fixed;
+                            cout << "Valor retirado: " << setprecision(2) << (correntista.retirar(valor)) << ", com sucesos!" << endl; 
                         } catch(exception &e){
                             cout << "Valor indisponível." << endl;
                         }
@@ -323,6 +329,7 @@ int main(){
                     cin >> valor;
                     try{
                         correntista.tranferir(valor, num);
+                        cout << "Transferido com sucesso." << endl;
                     } catch(exception &e){
                         cout << "Não foi possível concluir a transferencia!" << endl;
                     }

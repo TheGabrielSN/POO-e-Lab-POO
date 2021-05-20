@@ -65,7 +65,10 @@ public:
     }
 
     virtual void transferencia(float valor, Conta *c){
-        valor = *this >> valor;
+        if (valor>this->saldo){
+            throw ExceptionOver();
+        }
+        this->saldo -= valor;
         c->saldo += valor;
 
         No no;

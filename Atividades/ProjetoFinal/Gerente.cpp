@@ -55,7 +55,8 @@ void Gerente::atualizar(string numConta, string info, int tipo){
 }
 
 void Gerente::gerarNumConta(){
-    int num = (this->numConta*3.14+1.75)*17;
-    num = num > 10000 ? 1 : num;
+    static int i = 1;
+    int num = (this->numConta*3.14+1.75)/7*17;
+    num = num > 10000 ? i++ : num;
     this->numConta = static_cast<int>(num*3.14+1.75)*4545;
 }

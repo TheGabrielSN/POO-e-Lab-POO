@@ -3,6 +3,8 @@
 
 #include <iostream>                                     //Entrada e saída c++ 
 using std::cout, std::endl;
+#include <iomanip>                                          //Manipulação de entrada e saída 
+using std::setprecision, std::setw, std::fixed;
 #include <string>                                       //Tipo string c++ 
 using std::string;
 #include <vector>                                       //STL -> vetor sequencial 

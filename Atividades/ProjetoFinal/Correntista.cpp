@@ -46,7 +46,8 @@ void Correntista::saldo(){
     } catch(runtime_error &e){
         cout << e.what() << endl;
     }
-    cout << "Saldo: " << d->conta->getSaldo() << endl; 
+    cout << fixed;
+    cout << "Saldo: " << setprecision(2) << d->conta->getSaldo() << endl; 
 }
 void Correntista::extrato(){
     Data<Conta*> *d;
