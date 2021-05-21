@@ -20,7 +20,11 @@ void Gerente::fechar(string num){
 }
 
 void Gerente::consultar(string numConta){
-    this->banco.consultar(numConta);
+    try{
+        this->banco.consultar(numConta);
+    } catch(runtime_error &e){
+        cout << e.what() << endl;
+    }
     return;
 }
 

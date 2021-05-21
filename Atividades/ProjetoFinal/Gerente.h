@@ -8,8 +8,10 @@ using std::string, std::to_string;
 #include <vector>                                       //STL -> vetor sequencial 
 using std::vector;
 #include <stdexcept>                                    //Biblioteca para exception
+using std::exception;
 #include <exception>                                    //Biblioteca para runtime_error
-using std::runtime_error, std::exception;
+using std::runtime_error;
+#include ".\Conta\ExceptionOver.h"
 #include ".\Pessoa\Fisica.h"                            //Pessoa Fisica
 #include ".\Pessoa\Juridica.h"                          //Pessoa Juridica
 #include ".\Conta\Corrente.h"                           //Conta Corrente Comum
