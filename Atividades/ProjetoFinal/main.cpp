@@ -217,6 +217,11 @@ int main(){
                         cout << "Informe o número da conta: ";
                         cin >> num;
                         if(num=="0"){ break; }
+                        try{
+                            banco.buscar(num);
+                        } catch(runtime_error &e){
+                            cout << e.what() << endl;
+                        }
                         gerente.consultar(num);
                         Sleep(sleep3);
                     
@@ -226,6 +231,7 @@ int main(){
                         system ("CLS");
                         cout << "Digite o número da conta: ";
                         cin >> conta;
+                        gerente.consultar(conta);
                         cout << "Escolha a informação a ser alterada: " << endl;
                         cout << "1 - Endereço" << endl;
                         cout << "2 - Email" << endl;
@@ -268,6 +274,11 @@ int main(){
                         cout << "Digite 0 para voltar." << endl;
                         cout << "Digite o número da conta: ";
                         cin >> conta;
+                        try{
+                            banco.buscar(conta);
+                        } catch(runtime_error &e){
+                            cout << e.what() << endl;
+                        }
                         gerente.fechar(conta);
                         cout << "Conta fechada com sucesso" << endl;
                         Sleep(sleep1);
@@ -283,6 +294,11 @@ int main(){
             string num;
             cout << "Informe o número da conta: ";
             cin >> num;
+            try{
+                banco.buscar(num);
+            } catch(runtime_error &e){
+                cout << e.what() << endl;
+            }
             Correntista correntista(num, banco);
             while(true){
                 system ("CLS");
